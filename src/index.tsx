@@ -174,7 +174,6 @@ export default class PanZoom extends React.Component<Props, State> {
       const width = node.clientWidth;
       const height = node.clientHeight;
 
-      console.log(`width: ${width}, height: ${height}`);
       this.setState({ width, height });
     }
 
