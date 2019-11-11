@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 interface Props {
-  url: string;
+  url: Readonly<string>;
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -62,17 +62,17 @@ const Map = styled.div`
   height: 100%;
 `;
 
-export class PanZoom extends React.Component<Props, State> {
+export default class PanZoom extends React.Component<Props, State> {
   public state: State = {
     width: 0,
     height: 0,
   };
 
-  private bgColor =
-    this.props.bgColor === undefined ? '#ddd' : this.props.bgColor;
-
   private outRef = React.createRef<HTMLDivElement>();
   private map: L.Map | null = null;
+
+  private bgColor =
+    this.props.bgColor === undefined ? '#ddd' : this.props.bgColor;
 
   private options = {
     preferCanvas:
