@@ -1,0 +1,22 @@
+name: github build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: Shallow copy
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: node -v
+      - run: yarn install
+      - run: yarn test
