@@ -1,0 +1,6 @@
+node_modules/
+devel/
+.eslintrc.json
+.eslintignore
+yarn-*.log
+.DS_Store

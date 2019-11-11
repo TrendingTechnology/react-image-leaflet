@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "@types/*"
+      ]
+    },
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "resolveJsonModule": true
+  }
+}
