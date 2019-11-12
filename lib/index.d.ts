@@ -2,6 +2,9 @@ import React from 'react';
 import 'leaflet/dist/leaflet.css';
 interface Props {
     url: Readonly<string>;
+    margin?: string | number;
+    padding?: string | number;
+    doubleClickReset?: boolean;
     preferCanvas?: boolean;
     attributionControl?: boolean;
     zoomControl?: boolean;
@@ -34,6 +37,8 @@ export default class PanZoom extends React.Component<Props, State> {
     private outRef;
     private map;
     private bgColor;
+    private margin;
+    private padding;
     private options;
     private calc;
     private draw;

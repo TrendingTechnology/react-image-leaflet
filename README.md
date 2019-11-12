@@ -49,6 +49,9 @@ see [leaflet's document](https://leafletjs.com/reference-1.5.0.html) for details
 
 - `url`: Image URL (required)
 - `bgColor`: string (_default_: '#ddd')
+- `margin`: string | number (_default_: 0)
+- `padding`: string | number (_default_: 0)
+- `doubleClickReset`: boolean (_default_: fasle, _overrides_ `doubleClickZoom`)
 - `preferCanvas`: boolean (_default_: false)
 - `attributionControl`: boolean (_default_: true)
 - `zoomControl`: boolean (_default_: true)

@@ -7,6 +7,9 @@ import 'leaflet/dist/leaflet.css';
 
 interface Props {
   url: Readonly<string>;
+  margin?: string | number;
+  padding?: string | number;
+  doubleClickReset?: boolean;
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -43,11 +46,13 @@ interface Size {
 
 interface ContainerProps {
   bgColor: string;
+  margin: string | number;
+  padding: string | number;
 }
 
 const Container = styled.div`
-  margin: 0;
-  padding: 0;
+  margin: ${(props: ContainerProps): string | number => props.margin};
+  padding: ${(props: ContainerProps): string | number => props.padding};
   height: 100%;
   overflow: hidden;
   background-color: ${(props: ContainerProps): string => props.bgColor};
@@ -75,6 +80,9 @@ export default class PanZoom extends React.Component<Props, State> {
   private bgColor =
     this.props.bgColor === undefined ? '#ddd' : this.props.bgColor;
 
+  private margin = this.props.margin === undefined ? 0 : this.props.margin;
+  private padding = this.props.padding === undefined ? 0 : this.props.padding;
+
   private options = {
     preferCanvas:
       this.props.preferCanvas === undefined ? false : this.props.preferCanvas,
@@ -88,8 +96,11 @@ export default class PanZoom extends React.Component<Props, State> {
     zoomDelta: this.props.zoomDelta === undefined ? 1 : this.props.zoomDelta,
     boxZoom: this.props.boxZoom === undefined ? true : this.props.boxZoom,
     doubleClickZoom:
-      this.props.doubleClickZoom === undefined
+      this.props.doubleClickZoom === undefined ||
+      this.props.doubleClickReset === undefined
         ? true
+        : this.props.doubleClickReset === true
+        ? false
         : this.props.doubleClickZoom,
     dragging: this.props.dragging === undefined ? true : this.props.dragging,
     maxZoom: this.props.maxZoom === undefined ? 3 : this.props.maxZoom,
@@ -164,6 +175,12 @@ export default class PanZoom extends React.Component<Props, State> {
       });
       this.map.fitBounds(bounds);
 
+      if (this.props.doubleClickReset) {
+        this.map.on('dblclick', () => {
+          if (this.map) this.map.fitBounds(bounds);
+        });
+      }
+
       if (img.width < this.state.width && img.height < this.state.height) {
         this.map.setZoom(0, { animate: false });
       }
@@ -200,7 +217,11 @@ export default class PanZoom extends React.Component<Props, State> {
 
   public render = (): JSX.Element => {
     return (
-      <Container ref={this.outRef} bgColor={this.bgColor}>
+      <Container
+        ref={this.outRef}
+        bgColor={this.bgColor}
+        margin={this.margin}
+        padding={this.padding}>
         <ReactResizeDetector
           handleWidth
           handleHeight
