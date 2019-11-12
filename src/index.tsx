@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactResizeDetector from 'react-resize-detector';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -151,6 +152,11 @@ export default class PanZoom extends React.Component<Props, State> {
         [size.height, size.width],
       ]);
 
+      if (this.map) {
+        this.map.off();
+        this.map.remove();
+      }
+
       this.map = L.map('map', {
         ...this.options,
         maxBounds: bounds,
@@ -168,6 +174,18 @@ export default class PanZoom extends React.Component<Props, State> {
     img.src = url;
   };
 
+  private onResize = (): void => {
+    const node = this.outRef.current;
+    if (node) {
+      const width = node.clientWidth;
+      const height = node.clientHeight;
+
+      this.setState({ width, height });
+    }
+
+    this.draw(this.props.url);
+  };
+
   public componentDidMount = (): void => {
     const node = this.outRef.current;
     if (node) {
@@ -183,6 +201,11 @@ export default class PanZoom extends React.Component<Props, State> {
   public render = (): JSX.Element => {
     return (
       <Container ref={this.outRef} bgColor={this.bgColor}>
+        <ReactResizeDetector
+          handleWidth
+          handleHeight
+          onResize={this.onResize}
+        />
         <Map id="map" />
       </Container>
     );

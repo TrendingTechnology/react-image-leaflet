@@ -37,6 +37,7 @@ export default class PanZoom extends React.Component<Props, State> {
     private options;
     private calc;
     private draw;
+    private onResize;
     componentDidMount: () => void;
     render: () => JSX.Element;
 }
