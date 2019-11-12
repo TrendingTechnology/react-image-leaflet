@@ -96,11 +96,10 @@ export default class PanZoom extends React.Component<Props, State> {
     zoomDelta: this.props.zoomDelta === undefined ? 1 : this.props.zoomDelta,
     boxZoom: this.props.boxZoom === undefined ? true : this.props.boxZoom,
     doubleClickZoom:
-      this.props.doubleClickZoom === undefined ||
-      this.props.doubleClickReset === undefined
-        ? true
-        : this.props.doubleClickReset === true
+      this.props.doubleClickReset === true
         ? false
+        : this.props.doubleClickZoom === undefined
+        ? true
         : this.props.doubleClickZoom,
     dragging: this.props.dragging === undefined ? true : this.props.dragging,
     maxZoom: this.props.maxZoom === undefined ? 3 : this.props.maxZoom,
