@@ -190,7 +190,16 @@ export default class PanZoom extends React.Component<Props, State> {
 
       if (this.props.doubleClickReset) {
         this.map.on('dblclick', () => {
-          if (this.map) this.map.fitBounds(bounds);
+          if (this.map) {
+            if (
+              img.width < this.state.width &&
+              img.height < this.state.height
+            ) {
+              this.map.setZoom(0);
+            } else {
+              this.map.fitBounds(bounds);
+            }
+          }
         });
       }
 
