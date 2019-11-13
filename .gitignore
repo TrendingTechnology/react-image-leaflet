@@ -3,5 +3,4 @@ yarn-*.log
 .DS_Store
 .cache/
 dist/
-demo/
 secrets/
