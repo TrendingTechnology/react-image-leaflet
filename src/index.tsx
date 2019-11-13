@@ -35,7 +35,6 @@ interface Props {
 }
 
 interface State {
-  url: string;
   width: number;
   height: number;
 }
@@ -84,7 +83,6 @@ export default class PanZoom extends React.Component<Props, State> {
     }
 
     this.state = {
-      url: this.props.url,
       width: width,
       height: height,
     };
