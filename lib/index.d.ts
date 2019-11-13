@@ -29,7 +29,6 @@ interface Props {
     bgColor?: string;
 }
 interface State {
-    url: string;
     width: number;
     height: number;
 }
