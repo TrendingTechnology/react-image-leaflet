@@ -35,6 +35,7 @@ interface Props {
 }
 
 interface State {
+  url: string;
   width: number;
   height: number;
 }
@@ -83,6 +84,7 @@ export default class PanZoom extends React.Component<Props, State> {
     }
 
     this.state = {
+      url: this.props.url,
       width: width,
       height: height,
     };
@@ -226,8 +228,8 @@ export default class PanZoom extends React.Component<Props, State> {
     this.draw(this.props.url);
   };
 
-  public componentDidUpdate = (_prevProps: Props, prevState: State): void => {
-    if (this.state !== prevState) {
+  public componentDidUpdate = (prevProps: Props, prevState: State): void => {
+    if (this.props !== prevProps || this.state !== prevState) {
       this.draw(this.props.url);
     }
   };
