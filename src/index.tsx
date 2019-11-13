@@ -69,10 +69,24 @@ const Map = styled.div`
 `;
 
 export default class PanZoom extends React.Component<Props, State> {
-  public state: State = {
-    width: 0,
-    height: 0,
-  };
+  constructor(props: Props) {
+    super(props);
+
+    const node = this.outRef.current;
+
+    let width = 0;
+    let height = 0;
+
+    if (node) {
+      width = node.clientWidth;
+      height = node.clientHeight;
+    }
+
+    this.state = {
+      width: width,
+      height: height,
+    };
+  }
 
   private outRef = React.createRef<HTMLDivElement>();
   private map: L.Map | null = null;
@@ -198,8 +212,6 @@ export default class PanZoom extends React.Component<Props, State> {
 
       this.setState({ width, height });
     }
-
-    this.draw(this.props.url);
   };
 
   public componentDidMount = (): void => {
@@ -212,6 +224,12 @@ export default class PanZoom extends React.Component<Props, State> {
     }
 
     this.draw(this.props.url);
+  };
+
+  public componentDidUpdate = (_prevProps: Props, prevState: State): void => {
+    if (this.state !== prevState) {
+      this.draw(this.props.url);
+    }
   };
 
   public render = (): JSX.Element => {

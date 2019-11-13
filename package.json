@@ -28,6 +28,7 @@
   "homepage": "https://github.com/sprout2000/react-image-leaflet#readme",
   "scripts": {
     "clean": "rimraf lib/*",
+    "start": "parcel ./demo/index.html --open",
     "test": "tsc --noEmit",
     "compile": "tsc",
     "prepublish": "npm-run-all clean compile"
