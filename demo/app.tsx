@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import EvnetListener from 'react-event-listener';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import PanZoom from '../src/index';
@@ -27,15 +28,46 @@ const ImgContainer = styled.div`
 `;
 
 const App = (): JSX.Element => {
-  const url = 'https://source.unsplash.com/random';
+  const [url, setUrl] = useState('https://source.unsplash.com/random');
 
   const agent = window.navigator.userAgent.toLowerCase();
   const mac = agent.includes('mac os x');
+
+  const preventDefault = (e: DragEvent): void => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleOnDrop = (e: DragEvent): void => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.dataTransfer) {
+      const file = e.dataTransfer.files[0];
+
+      const reader = new FileReader();
+
+      reader.onload = (): void => {
+        const img = new Image();
+        img.src = reader.result as string;
+        setUrl(img.src);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <Container>
+        <EvnetListener
+          target="window"
+          onDragEnter={(e): void => preventDefault(e)}
+          onDragOver={(e): void => preventDefault(e)}
+          onDragLeave={(e): void => preventDefault(e)}
+          onDrop={(e): void => handleOnDrop(e)}
+        />
         <ImgContainer>
           <PanZoom url={url} zoomSnap={mac ? 0.3 : 0} doubleClickReset />
         </ImgContainer>

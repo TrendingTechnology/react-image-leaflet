@@ -29,11 +29,12 @@ interface Props {
     bgColor?: string;
 }
 interface State {
+    url: string;
     width: number;
     height: number;
 }
 export default class PanZoom extends React.Component<Props, State> {
-    state: State;
+    constructor(props: Props);
     private outRef;
     private map;
     private bgColor;
@@ -44,6 +45,7 @@ export default class PanZoom extends React.Component<Props, State> {
     private draw;
     private onResize;
     componentDidMount: () => void;
+    componentDidUpdate: (prevProps: Props, prevState: State) => void;
     render: () => JSX.Element;
 }
 export {};
