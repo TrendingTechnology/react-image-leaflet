@@ -10,9 +10,8 @@
 
 ## Features
 
+- Pan & Zoom
 - Drag & Move
-- Zoom In
-- Zoom Out
 - Adjust image size to parent containers
 - provided with Type Difinition
 
