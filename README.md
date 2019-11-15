@@ -6,20 +6,22 @@
 [![GitHub forks](https://img.shields.io/github/forks/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/network)
 [![GitHub issues](https://img.shields.io/github/issues/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/issues)
 
+### A React library based on leaflet that adds pan and zoom features to images
+
 ### [DEMO](https://codesandbox.io/s/react-image-leaflet-demo-2nhfk)
 
 ## Features
 
 - Pan & Zoom
-- Adjust image size to parent containers
-- provided with Type Difinition
+- Adjust image size according to parent containers
+- Provided with Type Difinitions
 
 ## Usage
 
 Install
 
 ```bash
-$ npm install -D react-image-leaflet
+$ npm install react-image-leaflet
 ```
 
 then in your jsx or tsx ...
@@ -43,14 +45,15 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## Props
 
-see [leaflet's document](https://leafletjs.com/reference-1.5.0.html) for details ...
-
 - `url`: Image URL (required)
 - `bgColor`: string (_default_: '#ddd')
 - `margin`: string | number (_default_: 0)
 - `padding`: string | number (_default_: 0)
 - `doubleClickReset`: boolean (_default_: fasle, _overrides_ `doubleClickZoom`)
 - `getFocus`: boolean (_default_: false)
+
+about these options below, see [leaflet's documents](https://leafletjs.com/reference-1.5.0.html) for more details ...
+
 - `preferCanvas`: boolean (_default_: false)
 - `attributionControl`: boolean (_default_: true)
 - `zoomControl`: boolean (_default_: true)
