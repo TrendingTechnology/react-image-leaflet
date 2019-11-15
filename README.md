@@ -6,7 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/network)
 [![GitHub issues](https://img.shields.io/github/issues/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/issues)
 
-### A React library based on leaflet that adds pan and zoom features to images
+A React library based on leaflet that adds pan and zoom features to images
 
 ### [DEMO](https://codesandbox.io/s/react-image-leaflet-demo-2nhfk)
 
