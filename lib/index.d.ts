@@ -5,6 +5,7 @@ interface Props {
     margin?: string | number;
     padding?: string | number;
     doubleClickReset?: boolean;
+    autoFocus?: boolean;
     preferCanvas?: boolean;
     attributionControl?: boolean;
     zoomControl?: boolean;
@@ -35,10 +36,13 @@ interface State {
 export default class PanZoom extends React.Component<Props, State> {
     constructor(props: Props);
     private outRef;
+    private mapRef;
     private map;
     private bgColor;
     private margin;
     private padding;
+    private doubleClickReset;
+    private autoFocus;
     private options;
     private calc;
     private draw;
