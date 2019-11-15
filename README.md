@@ -11,7 +11,6 @@
 ## Features
 
 - Pan & Zoom
-- Drag & Move
 - Adjust image size to parent containers
 - provided with Type Difinition
 
@@ -51,6 +50,7 @@ see [leaflet's document](https://leafletjs.com/reference-1.5.0.html) for details
 - `margin`: string | number (_default_: 0)
 - `padding`: string | number (_default_: 0)
 - `doubleClickReset`: boolean (_default_: fasle, _overrides_ `doubleClickZoom`)
+- `autoFocus`: boolean (_default_: false)
 - `preferCanvas`: boolean (_default_: false)
 - `attributionControl`: boolean (_default_: true)
 - `zoomControl`: boolean (_default_: true)

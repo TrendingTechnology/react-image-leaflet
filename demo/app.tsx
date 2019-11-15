@@ -69,7 +69,12 @@ const App = (): JSX.Element => {
           onDrop={(e): void => handleOnDrop(e)}
         />
         <ImgContainer>
-          <PanZoom url={url} zoomSnap={mac ? 0.3 : 0} doubleClickReset />
+          <PanZoom
+            url={url}
+            zoomSnap={mac ? 0.3 : 0}
+            doubleClickReset
+            autoFocus
+          />
         </ImgContainer>
       </Container>
     </React.Fragment>

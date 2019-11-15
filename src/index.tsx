@@ -10,6 +10,7 @@ interface Props {
   margin?: string | number;
   padding?: string | number;
   doubleClickReset?: boolean;
+  autoFocus?: boolean;
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -72,14 +73,14 @@ export default class PanZoom extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    const node = this.outRef.current;
+    const outer = this.outRef.current;
 
     let width = 0;
     let height = 0;
 
-    if (node) {
-      width = node.clientWidth;
-      height = node.clientHeight;
+    if (outer) {
+      width = outer.clientWidth;
+      height = outer.clientHeight;
     }
 
     this.state = {
@@ -89,6 +90,7 @@ export default class PanZoom extends React.Component<Props, State> {
   }
 
   private outRef = React.createRef<HTMLDivElement>();
+  private mapRef = React.createRef<HTMLDivElement>();
   private map: L.Map | null = null;
 
   private bgColor =
@@ -96,6 +98,12 @@ export default class PanZoom extends React.Component<Props, State> {
 
   private margin = this.props.margin === undefined ? 0 : this.props.margin;
   private padding = this.props.padding === undefined ? 0 : this.props.padding;
+  private doubleClickReset =
+    this.props.doubleClickReset === undefined
+      ? false
+      : this.props.doubleClickReset;
+  private autoFocus =
+    this.props.autoFocus === undefined ? false : this.props.autoFocus;
 
   private options = {
     preferCanvas:
@@ -188,7 +196,7 @@ export default class PanZoom extends React.Component<Props, State> {
       });
       this.map.fitBounds(bounds);
 
-      if (this.props.doubleClickReset) {
+      if (this.doubleClickReset) {
         this.map.on('dblclick', () => {
           if (this.map) {
             if (
@@ -208,6 +216,14 @@ export default class PanZoom extends React.Component<Props, State> {
       }
 
       L.imageOverlay(img.src, bounds).addTo(this.map);
+
+      if (this.autoFocus) {
+        const node = this.mapRef.current;
+        if (node) {
+          node.blur();
+          node.focus();
+        }
+      }
     };
 
     img.src = url;
@@ -253,7 +269,7 @@ export default class PanZoom extends React.Component<Props, State> {
           handleHeight
           onResize={this.onResize}
         />
-        <Map id="map" />
+        <Map id="map" ref={this.mapRef} />
       </Container>
     );
   };
