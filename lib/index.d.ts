@@ -5,7 +5,7 @@ interface Props {
     margin?: string | number;
     padding?: string | number;
     doubleClickReset?: boolean;
-    autoFocus?: boolean;
+    getFocus?: boolean;
     preferCanvas?: boolean;
     attributionControl?: boolean;
     zoomControl?: boolean;
@@ -42,7 +42,7 @@ export default class PanZoom extends React.Component<Props, State> {
     private margin;
     private padding;
     private doubleClickReset;
-    private autoFocus;
+    private getFocus;
     private options;
     private calc;
     private draw;

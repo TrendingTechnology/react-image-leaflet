@@ -10,7 +10,7 @@ interface Props {
   margin?: string | number;
   padding?: string | number;
   doubleClickReset?: boolean;
-  autoFocus?: boolean;
+  getFocus?: boolean;
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -102,8 +102,8 @@ export default class PanZoom extends React.Component<Props, State> {
     this.props.doubleClickReset === undefined
       ? false
       : this.props.doubleClickReset;
-  private autoFocus =
-    this.props.autoFocus === undefined ? false : this.props.autoFocus;
+  private getFocus =
+    this.props.getFocus === undefined ? false : this.props.getFocus;
 
   private options = {
     preferCanvas:
@@ -217,7 +217,7 @@ export default class PanZoom extends React.Component<Props, State> {
 
       L.imageOverlay(img.src, bounds).addTo(this.map);
 
-      if (this.autoFocus) {
+      if (this.getFocus) {
         const node = this.mapRef.current;
         if (node) {
           node.blur();

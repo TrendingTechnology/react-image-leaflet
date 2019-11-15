@@ -73,7 +73,7 @@ const App = (): JSX.Element => {
             url={url}
             zoomSnap={mac ? 0.3 : 0}
             doubleClickReset
-            autoFocus
+            getFocus
           />
         </ImgContainer>
       </Container>
