@@ -33,6 +33,7 @@ interface Props {
   touchZoom?: boolean | 'center';
   bounceAtZoomLimits?: boolean;
   bgColor?: string;
+  attribution?: string;
 }
 
 interface State {
@@ -95,6 +96,11 @@ export default class PanZoom extends React.Component<Props, State> {
 
   private bgColor =
     this.props.bgColor === undefined ? '#ddd' : this.props.bgColor;
+
+  private attribution = {
+    attribution:
+      this.props.attribution === undefined ? '' : this.props.attribution,
+  };
 
   private margin = this.props.margin === undefined ? 0 : this.props.margin;
   private padding = this.props.padding === undefined ? 0 : this.props.padding;
@@ -215,7 +221,7 @@ export default class PanZoom extends React.Component<Props, State> {
         this.map.setZoom(0, { animate: false });
       }
 
-      L.imageOverlay(img.src, bounds).addTo(this.map);
+      L.imageOverlay(img.src, bounds, this.attribution).addTo(this.map);
 
       if (this.getFocus) {
         const node = this.mapRef.current;

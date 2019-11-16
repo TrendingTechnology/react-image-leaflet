@@ -74,6 +74,7 @@ const App = (): JSX.Element => {
             zoomSnap={mac ? 0.3 : 0}
             doubleClickReset
             getFocus
+            attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
           />
         </ImgContainer>
       </Container>

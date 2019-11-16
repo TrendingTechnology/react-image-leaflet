@@ -75,3 +75,4 @@ about these options below, see [leaflet's documents](https://leafletjs.com/refer
 - `tapTolerance`: number (_default_: 15)
 - `touchZoom`: boolean | 'center' (_default_: false)
 - `bounceAtZoomLimits`: boolean (_default_: true)
+- `attribution`: string (The HTML text)
