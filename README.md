@@ -8,7 +8,7 @@
 
 A React library based on leaflet that adds pan and zoom features to images
 
-### [DEMO](https://codesandbox.io/s/react-image-leaflet-demo-2nhfk)
+### [DEMO](https://sprout2000.github.io/react-image-leaflet/)
 
 ## Features
 
