@@ -28,6 +28,7 @@ interface Props {
     touchZoom?: boolean | 'center';
     bounceAtZoomLimits?: boolean;
     bgColor?: string;
+    attribution?: string;
 }
 interface State {
     width: number;
@@ -39,6 +40,7 @@ export default class PanZoom extends React.Component<Props, State> {
     private mapRef;
     private map;
     private bgColor;
+    private attribution;
     private margin;
     private padding;
     private doubleClickReset;
