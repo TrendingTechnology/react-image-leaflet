@@ -49,6 +49,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 - `bgColor`: string (_default_: '#ddd')
 - `margin`: string | number (_default_: 0)
 - `padding`: string | number (_default_: 0)
+- `zIndex`: number | 'inherit' (_default_: 'inherit')
 - `doubleClickReset`: boolean (_default_: fasle, _overrides_ `doubleClickZoom`)
 - `getFocus`: boolean (_default_: false)
 

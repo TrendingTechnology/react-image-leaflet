@@ -11,6 +11,7 @@ interface Props {
   padding?: string | number;
   doubleClickReset?: boolean;
   getFocus?: boolean;
+  zIndex?: number | 'inherit';
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -64,10 +65,15 @@ const Container = styled.div`
   }
 `;
 
+interface MapProps {
+  zIndex: number | 'inherit';
+}
+
 const Map = styled.div`
   margin: 0;
   padding: 0;
   height: 100%;
+  z-index: ${(props: MapProps): number | 'inherit' => props.zIndex};
 `;
 
 export default class PanZoom extends React.Component<Props, State> {
@@ -108,6 +114,8 @@ export default class PanZoom extends React.Component<Props, State> {
       : this.props.doubleClickReset;
   private getFocus =
     this.props.getFocus === undefined ? false : this.props.getFocus;
+  private zIndex =
+    this.props.zIndex === undefined ? 'inherit' : this.props.zIndex;
 
   private options = {
     preferCanvas:
@@ -275,7 +283,7 @@ export default class PanZoom extends React.Component<Props, State> {
           handleHeight
           onResize={this.onResize}
         />
-        <Map id="map" ref={this.mapRef} />
+        <Map id="map" ref={this.mapRef} zIndex={this.zIndex} />
       </Container>
     );
   };
