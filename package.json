@@ -13,10 +13,10 @@
     "pan",
     "leaflet"
   ],
-  "main": "lib/index.js",
-  "type": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "type": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -27,11 +27,11 @@
   },
   "homepage": "https://sprout2000.github.io/react-image-leaflet",
   "scripts": {
-    "demo": "parcel ./demo/index.html --open",
-    "build": "parcel build ./demo/index.html --no-source-maps --public-url .",
-    "clean": "rimraf lib/*",
-    "clean:prod": "rimraf dist/*",
-    "gh-pages": "gh-pages -d dist",
+    "demo": "parcel ./demo/index.html -d public --open",
+    "build": "parcel build ./demo/index.html -d public --no-source-maps --public-url .",
+    "clean": "rimraf dist/*",
+    "clean:prod": "rimraf public/*",
+    "gh-pages": "gh-pages -d public",
     "deploy": "npm-run-all clean:prod build gh-pages",
     "test": "tsc --noEmit",
     "compile": "tsc"
