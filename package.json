@@ -1,7 +1,7 @@
 {
   "name": "react-image-leaflet",
   "description": "A React library based on leaflet that adds pan and zoom features to images",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "author": {
     "name": "sprout2000"
