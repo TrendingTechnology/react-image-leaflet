@@ -8,10 +8,11 @@ import 'leaflet/dist/leaflet.css';
 interface Props {
   url: Readonly<string>;
   bgColor?: string;
+  getFocus?: boolean;
+  attribution?: string;
   margin?: string | number;
   padding?: string | number;
   doubleClickReset?: boolean;
-  getFocus?: boolean;
   zIndex?: number | 'inherit';
   preferCanvas?: boolean;
   attributionControl?: boolean;
@@ -34,7 +35,6 @@ interface Props {
   tapTolerance?: number;
   touchZoom?: boolean | 'center';
   bounceAtZoomLimits?: boolean;
-  attribution?: string;
 }
 
 interface State {

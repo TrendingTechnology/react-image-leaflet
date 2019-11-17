@@ -51,6 +51,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 - `zIndex`: number | 'inherit' (_default_: 'inherit')
 - `doubleClickReset`: boolean (_default_: false, _overrides_ `doubleClickZoom`)
 - `getFocus`: boolean (_default_: false)
+- `attribution`: string (The HTML text)
 
 ### Props inherited from [Leaflet](https://leafletjs.com/)
 
@@ -77,4 +78,3 @@ see [leaflet's documents](https://leafletjs.com/reference-1.5.0.html) for more d
 - `tapTolerance`: number (_default_: 15)
 - `touchZoom`: boolean | 'center' (_default_: true)
 - `bounceAtZoomLimits`: boolean (_default_: true)
-- `attribution`: string (The HTML text)
