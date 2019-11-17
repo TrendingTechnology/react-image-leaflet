@@ -266,11 +266,7 @@ export default class PanZoom extends React.Component<Props, State> {
   };
 
   public componentDidUpdate = (prevProps: Props, prevState: State): void => {
-    if (
-      this.props.url !== prevProps.url ||
-      this.state.width !== prevState.width ||
-      this.state.height !== prevState.height
-    ) {
+    if (this.props.url !== prevProps.url || this.state !== prevState) {
       this.draw(this.props.url);
     }
   };
