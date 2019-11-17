@@ -15,6 +15,16 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   height: 100%;
+`;
+
+const Header = styled.div`
+  padding: 2em;
+  text-align: center;
+  color: #666;
+`;
+
+const Content = styled.div`
+  height: 80vmin;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,15 +83,18 @@ const App = (): JSX.Element => {
           onDragLeave={(e): void => preventDefault(e)}
           onDrop={(e): void => handleOnDrop(e)}
         />
-        <ImgContainer>
-          <PanZoom
-            url={url}
-            zoomSnap={mac ? 0.3 : 0}
-            doubleClickReset
-            getFocus
-            attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
-          />
-        </ImgContainer>
+        <Header>You can drop an image file here... </Header>
+        <Content>
+          <ImgContainer>
+            <PanZoom
+              url={url}
+              zoomSnap={mac ? 0.3 : 0}
+              doubleClickReset
+              getFocus
+              attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
+            />
+          </ImgContainer>
+        </Content>
       </Container>
     </React.Fragment>
   );
