@@ -30,6 +30,7 @@ const ImgContainer = styled.div`
 const App = (): JSX.Element => {
   const [url, setUrl] = useState('https://source.unsplash.com/random');
 
+  const regexp = /bmp|ico|gif|jpeg|png|apng|svg|webp/;
   const agent = window.navigator.userAgent.toLowerCase();
   const mac = agent.includes('mac os x');
 
@@ -39,18 +40,22 @@ const App = (): JSX.Element => {
   };
 
   const handleOnDrop = (e: DragEvent): void => {
-    e.preventDefault();
-    e.stopPropagation();
+    preventDefault(e);
 
     if (e.dataTransfer) {
       const file = e.dataTransfer.files[0];
+      if (!file.type.match(regexp)) return;
 
       const reader = new FileReader();
 
       reader.onload = (): void => {
         const img = new Image();
+
+        img.onload = (): void => {
+          setUrl(img.src);
+        };
+
         img.src = reader.result as string;
-        setUrl(img.src);
       };
 
       reader.readAsDataURL(file);

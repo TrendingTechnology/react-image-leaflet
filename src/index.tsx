@@ -13,7 +13,6 @@ interface Props {
   doubleClickReset?: boolean;
   getFocus?: boolean;
   zIndex?: number | 'inherit';
-  delay?: number;
   preferCanvas?: boolean;
   attributionControl?: boolean;
   zoomControl?: boolean;
@@ -100,7 +99,6 @@ export default class PanZoom extends React.Component<Props, State> {
   private outRef = React.createRef<HTMLDivElement>();
   private mapRef = React.createRef<HTMLDivElement>();
   private map: L.Map | null = null;
-  private timer = 0;
 
   private bgColor =
     this.props.bgColor === undefined ? '#ddd' : this.props.bgColor;
@@ -116,7 +114,6 @@ export default class PanZoom extends React.Component<Props, State> {
     this.props.getFocus === undefined ? false : this.props.getFocus;
   private zIndex =
     this.props.zIndex === undefined ? 'inherit' : this.props.zIndex;
-  private delay = this.props.delay ? 200 : this.props.delay;
 
   private options = {
     preferCanvas:
@@ -250,14 +247,7 @@ export default class PanZoom extends React.Component<Props, State> {
       const width = node.clientWidth;
       const height = node.clientHeight;
 
-      if (this.timer > 0) {
-        clearTimeout(this.timer);
-      }
-
-      this.timer = setTimeout(
-        (): void => this.setState({ width, height }),
-        this.delay
-      );
+      this.setState({ width, height });
     }
   };
 
