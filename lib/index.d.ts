@@ -3,12 +3,12 @@ import 'leaflet/dist/leaflet.css';
 interface Props {
     url: Readonly<string>;
     bgColor?: string;
+    getFocus?: boolean;
+    attribution?: string;
     margin?: string | number;
     padding?: string | number;
     doubleClickReset?: boolean;
-    getFocus?: boolean;
     zIndex?: number | 'inherit';
-    delay?: number;
     preferCanvas?: boolean;
     attributionControl?: boolean;
     zoomControl?: boolean;
@@ -30,7 +30,6 @@ interface Props {
     tapTolerance?: number;
     touchZoom?: boolean | 'center';
     bounceAtZoomLimits?: boolean;
-    attribution?: string;
 }
 interface State {
     width: number;
@@ -41,7 +40,6 @@ export default class PanZoom extends React.Component<Props, State> {
     private outRef;
     private mapRef;
     private map;
-    private timer;
     private bgColor;
     private attribution;
     private margin;
@@ -49,7 +47,6 @@ export default class PanZoom extends React.Component<Props, State> {
     private doubleClickReset;
     private getFocus;
     private zIndex;
-    private delay;
     private options;
     private calc;
     private draw;
