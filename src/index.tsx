@@ -163,8 +163,7 @@ export default class PanZoom extends React.Component<Props, State> {
     tap: this.props.tap === undefined ? true : this.props.tap,
     tapTolerance:
       this.props.tapTolerance === undefined ? 15 : this.props.tapTolerance,
-    touchZoom:
-      this.props.touchZoom === undefined ? false : this.props.touchZoom,
+    touchZoom: this.props.touchZoom === undefined ? true : this.props.touchZoom,
     bounceAtZoomLimits:
       this.props.bounceAtZoomLimits === undefined
         ? true

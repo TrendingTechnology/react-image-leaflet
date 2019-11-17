@@ -34,7 +34,7 @@ import PanZoom from 'react-image-leaflet';
 const App = () => {
   return (
     <div style={{ width: '500px', height: '500px' }}>
-      <PanZoom url={'https://source.unsplash.com/random'} bgColor={'#242424'} />
+      <PanZoom url={'https://source.unsplash.com/random'} />
     </div>
   );
 };
@@ -49,10 +49,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 - `margin`: string | number (_default_: 0)
 - `padding`: string | number (_default_: 0)
 - `zIndex`: number | 'inherit' (_default_: 'inherit')
-- `doubleClickReset`: boolean (_default_: fasle, _overrides_ `doubleClickZoom`)
+- `doubleClickReset`: boolean (_default_: false, _overrides_ `doubleClickZoom`)
 - `getFocus`: boolean (_default_: false)
 
-about these options below, see [leaflet's documents](https://leafletjs.com/reference-1.5.0.html) for more details ...
+### Props inherited from [Leaflet](https://leafletjs.com/)
+
+see [leaflet's documents](https://leafletjs.com/reference-1.5.0.html) for more details ...
 
 - `preferCanvas`: boolean (_default_: false)
 - `attributionControl`: boolean (_default_: true)
@@ -73,6 +75,6 @@ about these options below, see [leaflet's documents](https://leafletjs.com/refer
 - `wheelPxPerZoomLevel`: number (_default_: 60)
 - `tap`: boolean (_default_: true)
 - `tapTolerance`: number (_default_: 15)
-- `touchZoom`: boolean | 'center' (_default_: false)
+- `touchZoom`: boolean | 'center' (_default_: true)
 - `bounceAtZoomLimits`: boolean (_default_: true)
 - `attribution`: string (The HTML text)
