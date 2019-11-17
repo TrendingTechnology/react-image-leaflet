@@ -34,8 +34,7 @@
     "gh-pages": "gh-pages -d dist",
     "deploy": "npm-run-all clean:prod build gh-pages",
     "test": "tsc --noEmit",
-    "compile": "tsc",
-    "prepublish": "npm-run-all clean compile"
+    "compile": "tsc"
   },
   "devDependencies": {
     "@types/leaflet": "^1.5.5",
