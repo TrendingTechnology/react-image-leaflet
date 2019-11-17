@@ -1,9 +1,9 @@
 # react-image-leaflet
 
 [![Actions Status](https://github.com/sprout2000/react-image-leaflet/workflows/github%20build/badge.svg)](https://github.com/{owner}/{repo}/actions)
+![GitHub file size in bytes](https://img.shields.io/github/size/sprout2000/react-image-leaflet/dist/index.js)
+![npm](https://img.shields.io/npm/dt/react-image-leaflet)
 [![GitHub license](https://img.shields.io/github/license/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/blob/master/LICENSE.txt)
-![downloads](https://img.shields.io/npm/dt/react-image-leaflet)
-[![GitHub issues](https://img.shields.io/github/issues/sprout2000/react-image-leaflet)](https://github.com/sprout2000/react-image-leaflet/issues)
 
 A React library based on leaflet that adds pan and zoom features to images
 
