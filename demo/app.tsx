@@ -40,27 +40,27 @@ const App = (): JSX.Element => {
   };
 
   return (
-      <div className="container">
-        <EvnetListener
-          target="window"
-          onDragEnter={(e): void => preventDefault(e)}
-          onDragOver={(e): void => preventDefault(e)}
-          onDragLeave={(e): void => preventDefault(e)}
-          onDrop={(e): void => handleOnDrop(e)}
-        />
-        <div className="header">You can drop an image file here... </div>
-        <div className="content">
-          <div className="image-container">
-            <PanZoom
-              url={url}
-              zoomSnap={macos ? 0.3 : 0}
-              doubleClickReset
-              getFocus
-              attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
-            />
-          </div>
+    <div className="container">
+      <EvnetListener
+        target="window"
+        onDragEnter={(e): void => preventDefault(e)}
+        onDragOver={(e): void => preventDefault(e)}
+        onDragLeave={(e): void => preventDefault(e)}
+        onDrop={(e): void => handleOnDrop(e)}
+      />
+      <div className="header">You can also drop an image file here... </div>
+      <div className="content">
+        <div className="image-container">
+          <PanZoom
+            url={url}
+            zoomSnap={macos ? 0.3 : 0}
+            doubleClickReset
+            getFocus
+            attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
+          />
         </div>
       </div>
+    </div>
   );
 };
 
