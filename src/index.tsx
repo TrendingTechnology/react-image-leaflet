@@ -13,6 +13,7 @@ interface Props {
   margin?: string | number;
   padding?: string | number;
   doubleClickReset?: boolean;
+  fitSmallImage?: boolean;
   zIndex?: number | 'inherit';
   preferCanvas?: boolean;
   attributionControl?: boolean;
@@ -112,6 +113,8 @@ export default class PanZoom extends React.Component<Props, State> {
       : this.props.doubleClickReset;
   private getFocus =
     this.props.getFocus === undefined ? false : this.props.getFocus;
+  private fitSmallImage =
+    this.props.fitSmallImage === undefined ? false : this.props.fitSmallImage;
   private zIndex =
     this.props.zIndex === undefined ? 'inherit' : this.props.zIndex;
 
@@ -210,7 +213,8 @@ export default class PanZoom extends React.Component<Props, State> {
           if (this.map) {
             if (
               img.width < this.state.width &&
-              img.height < this.state.height
+              img.height < this.state.height &&
+              !this.fitSmallImage
             ) {
               this.map.setZoom(0);
             } else {
@@ -220,7 +224,11 @@ export default class PanZoom extends React.Component<Props, State> {
         });
       }
 
-      if (img.width < this.state.width && img.height < this.state.height) {
+      if (
+        img.width < this.state.width &&
+        img.height < this.state.height &&
+        !this.fitSmallImage
+      ) {
         this.map.setZoom(0, { animate: false });
       }
 

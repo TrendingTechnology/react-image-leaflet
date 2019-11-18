@@ -50,6 +50,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 - `padding`: string | number (_default_: 0)
 - `zIndex`: number | 'inherit' (_default_: 'inherit')
 - `doubleClickReset`: boolean (_default_: false, _overrides_ `doubleClickZoom`)
+- `fitSmallImage`: boolean (_default_: false)
 - `attribution`: string (The HTML text)
 
 ### Props inherited from [Leaflet](https://leafletjs.com/)

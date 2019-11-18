@@ -8,6 +8,7 @@ interface Props {
     margin?: string | number;
     padding?: string | number;
     doubleClickReset?: boolean;
+    fitSmallImage?: boolean;
     zIndex?: number | 'inherit';
     preferCanvas?: boolean;
     attributionControl?: boolean;
@@ -46,6 +47,7 @@ export default class PanZoom extends React.Component<Props, State> {
     private padding;
     private doubleClickReset;
     private getFocus;
+    private fitSmallImage;
     private zIndex;
     private options;
     private calc;

@@ -53,6 +53,7 @@ var PanZoom = /** @class */ (function (_super) {
             ? false
             : _this.props.doubleClickReset;
         _this.getFocus = _this.props.getFocus === undefined ? false : _this.props.getFocus;
+        _this.fitSmallImage = _this.props.fitSmallImage === undefined ? false : _this.props.fitSmallImage;
         _this.zIndex = _this.props.zIndex === undefined ? 'inherit' : _this.props.zIndex;
         _this.options = {
             preferCanvas: _this.props.preferCanvas === undefined ? false : _this.props.preferCanvas,
@@ -123,7 +124,8 @@ var PanZoom = /** @class */ (function (_super) {
                     _this.map.on('dblclick', function () {
                         if (_this.map) {
                             if (img.width < _this.state.width &&
-                                img.height < _this.state.height) {
+                                img.height < _this.state.height &&
+                                !_this.fitSmallImage) {
                                 _this.map.setZoom(0);
                             }
                             else {
@@ -132,7 +134,9 @@ var PanZoom = /** @class */ (function (_super) {
                         }
                     });
                 }
-                if (img.width < _this.state.width && img.height < _this.state.height) {
+                if (img.width < _this.state.width &&
+                    img.height < _this.state.height &&
+                    !_this.fitSmallImage) {
                     _this.map.setZoom(0, { animate: false });
                 }
                 leaflet_1.default.imageOverlay(img.src, bounds, { attribution: _this.attribution }).addTo(_this.map);
