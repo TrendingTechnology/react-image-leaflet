@@ -8,8 +8,7 @@ const App = (): JSX.Element => {
   const [url, setUrl] = useState('https://source.unsplash.com/random');
 
   const regexp = /bmp|ico|gif|jpeg|png|apng|svg|webp/;
-  const agent = window.navigator.userAgent.toLowerCase();
-  const macos = agent.includes('mac os x');
+  const macos = window.navigator.userAgent.includes('Mac OS X');
 
   const preventDefault = (e: DragEvent): void => {
     e.preventDefault();
