@@ -10,8 +10,7 @@
     "react",
     "image",
     "zoom",
-    "pan",
-    "leaflet"
+    "pan"
   ],
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
