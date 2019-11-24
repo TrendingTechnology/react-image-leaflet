@@ -27,7 +27,7 @@
   "homepage": "https://sprout2000.github.io/react-image-leaflet",
   "scripts": {
     "demo": "parcel ./demo/index.html -d public --open",
-    "build": "parcel build ./demo/index.html -d public --no-source-maps --public-url .",
+    "build": "parcel build ./demo/index.html -d public --public-url .",
     "clean": "rimraf dist/*",
     "clean:prod": "rimraf public/*",
     "gh-pages": "gh-pages -d public",

@@ -24,6 +24,26 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const Label = styled.label`
+  color: #ffffff;
+  font-size: 2.5vh;
+  background-color: #007aff;
+  padding: 0.25em 1.5em;
+  border-radius: 0.25em;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: #0060d2;
+  }
+`;
+
+const Button = styled.input.attrs({ type: 'file', accept: 'image/*' })`
+  display: none;
+`;
+
 const Text = styled.p`
   font-size: 2.5vh;
   color: #666;
@@ -47,6 +67,30 @@ const App = (): JSX.Element => {
     e.stopPropagation();
   };
 
+  const load = (file: File): void => {
+    const reader = new FileReader();
+
+    reader.onload = (): void => {
+      const img = new Image();
+
+      img.onload = (): void => {
+        setUrl(img.src);
+      };
+
+      img.src = reader.result as string;
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  const handleOnClick = (e: React.ChangeEvent): void => {
+    const target = e.target as HTMLInputElement;
+    const file = (target.files as FileList)[0];
+    if (!file.type.match(regexp)) return;
+
+    load(file);
+  };
+
   const handleOnDrop = (e: DragEvent): void => {
     preventDefault(e);
 
@@ -54,19 +98,7 @@ const App = (): JSX.Element => {
       const file = e.dataTransfer.files[0];
       if (!file.type.match(regexp)) return;
 
-      const reader = new FileReader();
-
-      reader.onload = (): void => {
-        const img = new Image();
-
-        img.onload = (): void => {
-          setUrl(img.src);
-        };
-
-        img.src = reader.result as string;
-      };
-
-      reader.readAsDataURL(file);
+      load(file);
     }
   };
 
@@ -81,6 +113,10 @@ const App = (): JSX.Element => {
           onDragLeave={(e): void => preventDefault(e)}
           onDrop={(e): void => handleOnDrop(e)}
         />
+        <Label>
+          Open
+          <Button type="file" onChange={(e): void => handleOnClick(e)} />
+        </Label>
         <Text>You can also drop an image file here... </Text>
         <Leaflet>
           <PanZoom
