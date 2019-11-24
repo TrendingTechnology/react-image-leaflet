@@ -22,6 +22,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 const Label = styled.label`
@@ -47,8 +49,6 @@ const Button = styled.input.attrs({ type: 'file', accept: 'image/*' })`
 const Text = styled.p`
   font-size: 2.5vh;
   color: #666;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 const Leaflet = styled.div`
