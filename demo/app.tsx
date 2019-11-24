@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import EventListener from 'react-event-listener';
 import styled, { createGlobalStyle } from 'styled-components';
-import EvnetListener from 'react-event-listener';
 
 import PanZoom from '../src/index';
 
@@ -17,11 +17,11 @@ const Container = styled.div`
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   display: flex;
+  overflow: hidden;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
@@ -29,9 +29,9 @@ const Container = styled.div`
 const Label = styled.label`
   color: #ffffff;
   font-size: 2.5vh;
-  background-color: #007aff;
-  padding: 0.25em 1.5em;
+  padding: 0.5em 1.5em;
   border-radius: 0.25em;
+  background-color: #007aff;
 
   &:hover {
     cursor: pointer;
@@ -47,8 +47,8 @@ const Button = styled.input.attrs({ type: 'file', accept: 'image/*' })`
 `;
 
 const Text = styled.p`
-  font-size: 2.5vh;
   color: #666;
+  font-size: 2.5vh;
 `;
 
 const Leaflet = styled.div`
@@ -106,7 +106,7 @@ const App = (): JSX.Element => {
     <React.Fragment>
       <GlobalStyle />
       <Container>
-        <EvnetListener
+        <EventListener
           target="window"
           onDragEnter={(e): void => preventDefault(e)}
           onDragOver={(e): void => preventDefault(e)}
