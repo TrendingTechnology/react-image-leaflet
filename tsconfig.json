@@ -5,7 +5,8 @@
       "es2019",
       "dom"
     ],
-    "module": "commonjs",
+    "module": "es6",
+    "moduleResolution": "node",
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
