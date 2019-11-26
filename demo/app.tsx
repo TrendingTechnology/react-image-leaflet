@@ -5,6 +5,14 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import PanZoom from '../src/index';
 
+interface ContainerProps {
+  bgColor: string;
+}
+
+interface TextProps {
+  color: string;
+}
+
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
     margin: 0;
@@ -24,13 +32,14 @@ const Container = styled.div`
   justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: ${(props: ContainerProps): string => props.bgColor};
 `;
 
 const Label = styled.label`
   color: #ffffff;
   font-size: 2.5vh;
-  padding: 0.5em 1.5em;
-  border-radius: 0.25em;
+  padding: 0.3em 1.5em;
+  border-radius: 0.1em;
   background-color: #007aff;
 
   &:hover {
@@ -47,7 +56,7 @@ const Button = styled.input.attrs({ type: 'file', accept: 'image/*' })`
 `;
 
 const Text = styled.p`
-  color: #666;
+  color: ${(props: TextProps): string => props.color};
   font-size: 2.5vh;
 `;
 
@@ -61,6 +70,10 @@ const App = (): JSX.Element => {
 
   const regexp = /bmp|ico|gif|jpeg|png|apng|svg|webp/;
   const macos = window.navigator.userAgent.includes('Mac OS X');
+
+  const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const bgColor = dark ? '#323232' : '#efeff4';
+  const color = dark ? '#efeff4' : '#323232';
 
   const preventDefault = (e: DragEvent): void => {
     e.preventDefault();
@@ -105,7 +118,7 @@ const App = (): JSX.Element => {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Container>
+      <Container bgColor={bgColor}>
         <EventListener
           target="window"
           onDragEnter={(e): void => preventDefault(e)}
@@ -117,7 +130,7 @@ const App = (): JSX.Element => {
           Open
           <Button type="file" onChange={(e): void => handleOnClick(e)} />
         </Label>
-        <Text>You can also drop an image file here... </Text>
+        <Text color={color}>You can also drop an image file here... </Text>
         <Leaflet>
           <PanZoom
             url={url}
