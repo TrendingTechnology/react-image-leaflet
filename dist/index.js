@@ -1,4 +1,3 @@
-"use strict";
 var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -27,23 +26,19 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
-var styled_components_1 = __importDefault(require("styled-components"));
-var react_resize_detector_1 = __importDefault(require("react-resize-detector"));
-var leaflet_1 = __importDefault(require("leaflet"));
-require("leaflet/dist/leaflet.css");
-var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  margin: ", ";\n  padding: ", ";\n  height: 100%;\n  overflow: hidden;\n  background-color: ", ";\n\n  .leaflet-container {\n    background-color: transparent;\n  }\n"], ["\n  margin: ", ";\n  padding: ", ";\n  height: 100%;\n  overflow: hidden;\n  background-color: ", ";\n\n  .leaflet-container {\n    background-color: transparent;\n  }\n"])), function (props) { return props.margin; }, function (props) { return props.padding; }, function (props) { return props.bgColor; });
-var Map = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  z-index: ", ";\n"], ["\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  z-index: ", ";\n"])), function (props) { return props.zIndex; });
+import React from 'react';
+import styled from 'styled-components';
+import ReactResizeDetector from 'react-resize-detector';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+var Container = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  margin: ", ";\n  padding: ", ";\n  height: 100%;\n  overflow: hidden;\n  background-color: ", ";\n\n  .leaflet-container {\n    background-color: transparent;\n  }\n"], ["\n  margin: ", ";\n  padding: ", ";\n  height: 100%;\n  overflow: hidden;\n  background-color: ", ";\n\n  .leaflet-container {\n    background-color: transparent;\n  }\n"])), function (props) { return props.margin; }, function (props) { return props.padding; }, function (props) { return props.bgColor; });
+var Map = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  z-index: ", ";\n"], ["\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  z-index: ", ";\n"])), function (props) { return props.zIndex; });
 var PanZoom = /** @class */ (function (_super) {
     __extends(PanZoom, _super);
     function PanZoom(props) {
         var _this = _super.call(this, props) || this;
-        _this.outRef = react_1.default.createRef();
-        _this.mapRef = react_1.default.createRef();
+        _this.outRef = React.createRef();
+        _this.mapRef = React.createRef();
         _this.map = null;
         _this.bgColor = _this.props.bgColor === undefined ? '#ddd' : _this.props.bgColor;
         _this.attribution = _this.props.attribution === undefined ? '' : _this.props.attribution;
@@ -110,7 +105,7 @@ var PanZoom = /** @class */ (function (_super) {
             var img = new Image();
             img.onload = function () {
                 var size = _this.calc(img.width, img.height);
-                var bounds = new leaflet_1.default.LatLngBounds([
+                var bounds = new L.LatLngBounds([
                     [0, 0],
                     [size.height, size.width],
                 ]);
@@ -118,7 +113,7 @@ var PanZoom = /** @class */ (function (_super) {
                     _this.map.off();
                     _this.map.remove();
                 }
-                _this.map = leaflet_1.default.map('map', __assign(__assign({}, _this.options), { maxBounds: bounds, crs: leaflet_1.default.CRS.Simple }));
+                _this.map = L.map('map', __assign(__assign({}, _this.options), { maxBounds: bounds, crs: L.CRS.Simple }));
                 _this.map.fitBounds(bounds);
                 if (_this.doubleClickReset) {
                     _this.map.on('dblclick', function () {
@@ -139,7 +134,7 @@ var PanZoom = /** @class */ (function (_super) {
                     !_this.fitSmallImage) {
                     _this.map.setZoom(0, { animate: false });
                 }
-                leaflet_1.default.imageOverlay(img.src, bounds, { attribution: _this.attribution }).addTo(_this.map);
+                L.imageOverlay(img.src, bounds, { attribution: _this.attribution }).addTo(_this.map);
                 if (_this.getFocus) {
                     var node = _this.mapRef.current;
                     if (node) {
@@ -173,9 +168,9 @@ var PanZoom = /** @class */ (function (_super) {
             }
         };
         _this.render = function () {
-            return (react_1.default.createElement(Container, { ref: _this.outRef, bgColor: _this.bgColor, margin: _this.margin, padding: _this.padding },
-                react_1.default.createElement(react_resize_detector_1.default, { handleWidth: true, handleHeight: true, onResize: _this.onResize }),
-                react_1.default.createElement(Map, { id: "map", ref: _this.mapRef, zIndex: _this.zIndex })));
+            return (React.createElement(Container, { ref: _this.outRef, bgColor: _this.bgColor, margin: _this.margin, padding: _this.padding },
+                React.createElement(ReactResizeDetector, { handleWidth: true, handleHeight: true, onResize: _this.onResize }),
+                React.createElement(Map, { id: "map", ref: _this.mapRef, zIndex: _this.zIndex })));
         };
         var outer = _this.outRef.current;
         var width = 0;
@@ -191,6 +186,6 @@ var PanZoom = /** @class */ (function (_super) {
         return _this;
     }
     return PanZoom;
-}(react_1.default.Component));
-exports.default = PanZoom;
+}(React.Component));
+export default PanZoom;
 var templateObject_1, templateObject_2;

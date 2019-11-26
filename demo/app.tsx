@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import EventListener from 'react-event-listener';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import PanZoom from '../src/index';
+import PanZoom from '../dist/index';
 
 interface ContainerProps {
   bgColor: string;
