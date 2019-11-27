@@ -33,9 +33,14 @@ import ReactDOM from 'react-dom';
 import PanZoom from 'react-image-leaflet';
 
 const App = () => {
+  const [url, setUrl] = React.useState('https://source.unsplash.com/random');
+
   return (
     <div style={{ width: '500px', height: '500px' }}>
-      <PanZoom url={'https://source.unsplash.com/random'} />
+      <PanZoom
+        url={url}
+        attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
+      />
     </div>
   );
 };
