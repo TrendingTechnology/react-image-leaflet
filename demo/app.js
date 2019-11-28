@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import PanZoom from 'react-image-leaflet';
+import PanZoom from '../dist/index';
 
 const App = () => {
   const [url, setUrl] = React.useState('https://source.unsplash.com/random');
