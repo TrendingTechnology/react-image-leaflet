@@ -27,7 +27,7 @@ $ npm install react-image-leaflet
 then in your jsx or tsx ...
 
 ```jsx
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import PanZoom from 'react-image-leaflet';

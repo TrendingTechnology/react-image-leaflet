@@ -5031,6 +5031,17 @@ react-event-listener@^0.6.6:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
+react-image-leaflet@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-image-leaflet/-/react-image-leaflet-0.2.0.tgz#c51177ce7b550d8ad650f563c1562e84f589377b"
+  integrity sha512-vE6+oH/6P/CpPJZgP8kpa2vZzvZUoWWBq+Dwh48xIbRKxfwBefLE8OfRQ9iKHOAZLSjZenFhynxtM+RQuAAmXA==
+  dependencies:
+    leaflet "^1.6.0"
+    react "^16.12.0"
+    react-dom "^16.12.0"
+    react-resize-detector "^4.2.1"
+    styled-components "^4.4.1"
+
 react-is@^16.6.0, react-is@^16.8.1:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
