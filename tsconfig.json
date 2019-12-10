@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "es2019",
+      "es6",
       "dom"
     ],
     "module": "es6",
@@ -20,6 +20,10 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "public",
+    "dist",
+    "demo",
+    ".cache",
+    ".github"
   ]
 }
