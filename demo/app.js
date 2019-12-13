@@ -7,7 +7,7 @@ const App = () => {
   const [url, setUrl] = React.useState('https://source.unsplash.com/random');
 
   return (
-    <div style={{ width: '500px', height: '500px' }}>
+    <div style={{ width: '80vw', height: '80vh' }}>
       <PanZoom
         url={url}
         attribution='<a target="_blank" href="https://source.unsplash.com/">source.unsplash.com</a>'
