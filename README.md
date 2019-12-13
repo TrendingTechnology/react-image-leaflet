@@ -1,4 +1,4 @@
-![preview](https://user-images.githubusercontent.com/52094761/70757433-e00b1c80-1d82-11ea-8ab7-e549c05604c3.png)
+![preview](https://user-images.githubusercontent.com/52094761/70774301-267d6d00-1dbd-11ea-854d-1d5fd51e56e7.png)
 
 [![Actions Status](https://github.com/sprout2000/react-image-leaflet/workflows/github%20build/badge.svg)](https://github.com/{owner}/{repo}/actions)
 ![GitHub file size in bytes](https://img.shields.io/github/size/sprout2000/react-image-leaflet/dist/index.js)
